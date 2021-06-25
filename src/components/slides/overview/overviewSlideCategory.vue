@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="showSlideCategory">
     <div class="flex">
       <img
         class="object-scale-down h-10 mr-2"
@@ -11,12 +11,12 @@
     </div>
     <div class="mt-5 border-1 grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-8">
       <overview-slide-item
-        v-for="slide in visibleSlides"
+        v-for="slide in searchedSlides"
         :key="slide.slideNumber"
         :img-src="slide.imgSrc"
         :slide-number="slide.slideNumber"
         :title="slide.overviewTitle || slide.slideTitle"
-        :highlight="highlightedSlideIds.includes(slide.slideNumber)"
+        :highlight="searchedSlideIDs.includes(slide.slideNumber)"
       />
     </div>
   </section>
@@ -42,7 +42,7 @@ export default {
       type: Object,
       required: true
     },
-    highlightedSlideIds: {
+    searchedSlideIDs: {
       type: Array,
       required: true
     },
@@ -50,7 +50,14 @@ export default {
   computed: {
     visibleSlides () {
       return this.slides.filter(slide => slide.slideNumber)
-    }
+    },
+    searchedSlides () {
+      if (this.searchedSlideIDs.length === 0) return this.visibleSlides
+      else return this.visibleSlides.filter(slide => this.searchedSlideIDs.includes(slide.slideNumber))
+    },
+    showSlideCategory () {
+      return this.searchedSlides.length > 0
+    },
   },
 }
 </script>

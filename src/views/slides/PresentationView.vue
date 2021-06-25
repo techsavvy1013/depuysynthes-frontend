@@ -22,8 +22,23 @@
         :overview-content="overviewContent"
         data-background-color="white"
       />
+      <!-- 20 -->
+      <DataObsAndPotSav03 data-background-color="white" />
+      <!-- 21 -->
+      <OrthopedicTraumaSpend04 data-background-color="white" />
+      <!-- 23 -->
+      <AdvantagesSimplifiedPortfolio06 data-background-color="white" />
+
+
       <!-- 24 -->
       <TraumaAnalysisToolDemo data-background-color="white" />
+
+      <!-- 30 -->
+      <ProposedSolutions14 data-background-color="white" />
+      <!-- 31 -->
+      <sav15 data-background-color="white" />
+      <!-- 32 -->
+      <ReusableSterilizationContainer09 data-background-color="white" />
       <!-- 34 -->
       <UniversalSmallFrag11 data-background-color="white" />
       <!-- 36 -->
@@ -33,6 +48,8 @@
         :saving-summary="savingSummary"
         data-background-color="white"
       />
+      <!-- 49 -->
+      <FutureLeadersSlide data-background-color="white" />
       <!-- 50 -->
       <TrainingPlanWithCalnder data-background-color="white" />
       <!-- 22 -->
@@ -41,6 +58,8 @@
       <ResearchInnovationEducationSlide data-background-color="white" />
       <!-- 45 -->
       <HipFractureCareSlide data-background-color="white" />
+      <!-- 52 -->
+      <RobustTraumaPortfolioSlide data-background-color="white" />
       <!-- 53 -->
       <ReadyForAnythingSlide data-background-color="white" />
       <!-- 54 -->
@@ -49,6 +68,10 @@
       <BroadPortfolioSlide data-background-color="white" />
       <!-- 56 -->
       <InnovationTimelineSlide data-background-color="white" />
+      <!-- 57 -->
+      <ProPakSlide data-background-color="white" />
+      <!-- 58 -->
+      <SynthesProPakSlide data-background-color="white" />
     </template>
   </DpPresentation>
 </template>
@@ -79,6 +102,16 @@ import ReadyForAnythingSlide from "@/components/slides/53.ReadyForAnything.vue";
 import CompleteSolutionsSlide from "@/components/slides/54.CompleteSolutions.vue";
 import BroadPortfolioSlide from "@/components/slides/55.BroadPortfolio.vue";
 import InnovationTimelineSlide from "@/components/slides/56.InnovationTimeline.vue";
+import DataObsAndPotSav03 from "@/components/slides/DataObsAndPotSav03.vue";
+import OrthopedicTraumaSpend04 from "@/components/slides/OrthopedicTraumaSpend04.vue"
+import AdvantagesSimplifiedPortfolio06 from "@/components/slides/AdvantagesSimplifiedPortfolio06.vue";
+import sav15 from "@/components/slides/sav15.vue"
+import ReusableSterilizationContainer09 from "@/components/slides/ReusableSterilizationContainer09.vue"
+import ProposedSolutions14 from "@/components/slides/ProposedSolutions14.vue"
+import ProPakSlide from "@/components/slides/57.Pro-PakConstructs.vue";
+import SynthesProPakSlide from "@/components/slides/58.SynthesProPak.vue";
+import RobustTraumaPortfolioSlide from "@/components/slides/52.RobustTraumaPortfolio.vue";
+import FutureLeadersSlide from "@/components/slides/49.FutureLeaders.vue";
 
 import surgeonPlan from "@/data/slideContent/surgeonPlan.json";
 import savingSummary from "@/data/slideContent/savingSummary.json";
@@ -113,6 +146,16 @@ export default {
     CompleteSolutionsSlide,
     BroadPortfolioSlide,
     InnovationTimelineSlide,
+    OrthopedicTraumaSpend04,
+    DataObsAndPotSav03,
+    AdvantagesSimplifiedPortfolio06,
+    sav15,
+    ReusableSterilizationContainer09,
+    ProposedSolutions14,
+    ProPakSlide,
+    SynthesProPakSlide,
+    RobustTraumaPortfolioSlide,
+    FutureLeadersSlide,
   },
 
   beforeRouteEnter(to, from, next) {

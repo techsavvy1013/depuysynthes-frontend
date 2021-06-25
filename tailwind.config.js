@@ -29,10 +29,13 @@ module.exports = {
       fontFamily: {
         Arial: "Arial, Helvetica, sans-serif",
         JnJ: "'J&J CircularTT'",
+        Roboto: "'Roboto', sans-serif"
       },
       fontSize: {
         xxs: '0.6rem',
-
+        '3xxl': ['32px', {
+          lineHeight: '40px'
+        }]
       },
 
       colors: {
@@ -42,6 +45,8 @@ module.exports = {
         "accent-blue": "#00B5E2",
         "primary-grad-from": "#CC0033",
         "primary-grad-to": "#C800A1",
+        "primary-grad-from-light": "#CC00330d",
+        "primary-grad-to-light": "#C800A10d",
         // slidColor: "#003B5F",
         // slidColor2: "#C2CFE0",
         // slideTableHeaderColor: "#003B5F",
@@ -74,6 +79,7 @@ module.exports = {
           500: "#888B8D",
           450: "#778CA2",
           425: "#92929D",
+          350: "#C4C4C4",
           100: "#D9D9D6",
           75: "#F5F6F8",
           50: "#FAFAFB",
@@ -81,6 +87,7 @@ module.exports = {
         },
         blue: {
           650: "#109CF1",
+          2: "#003B5F",
           1: "#003A5D",
         },
       },
@@ -90,6 +97,14 @@ module.exports = {
       transformOrigin: {
         0: "0%",
       },
+      spacing: {
+        21: '85px',
+        38: '150px',
+        42: '166px'
+      },
+      boxShadow: {
+        '2md': '0px 4px 10px rgba(213, 221, 234, 0.3)'
+      }
     },
   },
   variants: {

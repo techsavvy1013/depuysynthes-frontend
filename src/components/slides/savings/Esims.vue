@@ -2,10 +2,12 @@
   <section class="h-full">
     <!-- content div header-->
     <div class="flex flex-col h-full justify-around">
-      <slideHeaderSAV
+      <slideHeader
         title="DePuy Synthes Inventory Management System (eSIMS)"
         :sav-number="13"
         class="ml-16"
+        icon="sav"
+        name="SAV"
       />
       <!-- content body -->
       <div class="flex-2 flex flex-row mx-8 px-8 pt-2 my-auto items-start w-full justify-between">
@@ -42,10 +44,10 @@
 
 <script>
 import slideFooter from "@/components/slides/slideFooter.vue";
-import slideHeaderSAV from "@/components/slides/slideHeaderSAV.vue";
+import slideHeader from "@/components/slides/slideHeader.vue";
 
 export default {
-  components: { slideFooter, slideHeaderSAV },
+  components: { slideFooter, slideHeader },
 };
 </script>
 

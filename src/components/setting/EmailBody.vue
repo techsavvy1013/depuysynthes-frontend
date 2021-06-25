@@ -47,12 +47,11 @@
     <dp-button
       text="Cancel"
       class="w-36 bordered-dp-button px-3 mr-2 border rounded-xl font-bold text-center bg-gray-500 text-white"
-      @click="next(6)"
     />
     <dp-button
       text="Save"
       class="w-36 ml-3 py-5 px-14 text-white bg-secondary h-btn-builder min-h-btn-builder my-auto rounded-xl"
-      @click="next()"
+      @click="todo"
     />
   </div>
 </template>

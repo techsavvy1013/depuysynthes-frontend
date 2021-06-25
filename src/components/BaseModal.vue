@@ -1,26 +1,45 @@
 <template>
   <div
-    class="fixed z-20 inset-0 overflow-y-auto m-0 w-screen h-screen flex items-center justify-center min-h-screen"
+    class="
+      fixed
+      z-20
+      inset-0
+      overflow-y-auto
+    "
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-headline"
   >
-    <div
-      class="fixed inset-0 transition-opacity"
-      aria-hidden="true"
-    >
-      <div class="absolute inset-0 bg-gray-500 opacity-75" />
-    </div>
+    <div class="flex items-center justify-center min-h-screen">
+      <div
+        class="fixed inset-0 transition-opacity"
+        aria-hidden="true"
+      >
+        <div class="absolute inset-0 bg-gray-500 opacity-75" />
+      </div>
 
-    <!-- This element is to trick the browser into centering the modal contents. -->
-    <span
-      class="hidden sm:inline-block sm:align-middle sm:h-screen"
-      aria-hidden="true"
-    >&#8203;</span>
-    <div
-      class="inline-block bg-white text-left shadow transform transition-all my-8 align-middle rounded-2xl"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-headline"
-    >
-      <slot />
+      <!-- This element is to trick the browser into centering the modal contents. -->
+      <span
+        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+        aria-hidden="true"
+      >&#8203;</span>
+      <div
+        class="
+          inline-block
+          bg-white
+          text-left
+          shadow
+          transform
+          transition-all
+          my-8
+          align-middle
+          rounded-2xl
+          w-5/6
+          min-w-min
+        "
+      >
+        <slot />
+      </div>
     </div>
   </div>
 </template>

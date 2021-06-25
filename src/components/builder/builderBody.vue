@@ -57,10 +57,7 @@
         </button>
       </div>
     </div>
-    <div
-      id="overall-slide-layout"
-      class="my-3 border border-gray-300 rounded-lg"
-    >
+    <builderSlideContainer>
       <IntroductionSlide
         v-if="slideId === 'intro'"
         :intro-slide="introSlide"
@@ -108,7 +105,7 @@
         :slide="sav23Slide"
         class="slide-layout"
       />
-    </div>
+    </builderSlideContainer>
     <footer class="flex items-center justify-between py-3">
       <DpLinkButton
         v-if="adjescentPages.previous && adjescentPages.previous !== slideId"
@@ -140,6 +137,7 @@ import Sav23Slide from "@/components/slides/sav-23.vue";
 import DpLinkButton from "@/components/buttons/DpLinkButton.vue";
 import slideDetails from "@/data/betaSlides.json";
 import { mapGetters } from "vuex";
+import builderSlideContainer from "@/components/builder/builderSlideContainer.vue";
 
 export default {
   components: {
@@ -152,7 +150,8 @@ export default {
     DpLinkButton,
     IndustryFieldSlide,
     Sav10Slide,
-    Sav12Slide
+    Sav12Slide,
+    builderSlideContainer,
   },
   computed: {
     ...mapGetters({
@@ -201,44 +200,5 @@ export default {
       }
     }
   },
-  mounted() {
-    this.dynamicScaling();
-    window.addEventListener("resize", this.dynamicScaling);
-  },
-  unmounted() {
-    window.removeEventListener("resize", this.dynamicScaling);
-  },
-  methods: {
-    dynamicScaling() {
-      document.getElementById('overall-slide-layout').style.width = null;
-      let sliderContainerWidth = document.getElementById('overall-slide-layout').clientWidth - 2;
-
-      const minSlideWidth = 600
-      const scale = (sliderContainerWidth > minSlideWidth) ? sliderContainerWidth / 1280 : minSlideWidth/1200;
-      document.querySelector(':root').style.setProperty('--sliderBuilderScale', scale);
-
-      document.getElementById('overall-slide-layout').style.height = (720 * scale + 2) + 'px';
-    }
-  }
 };
 </script>
-
-<style>
-:root {
-  --sliderBuilderScale: 1;
-}
-</style>
-
-<style scoped>
-td,
-th {
-  border-style: hidden !important;
-}
-.slide-layout{
-  width: 1280px;
-  height: 720px;
-  position: absolute;
-  transform-origin: top left;
-  transform: scale(var(--sliderBuilderScale));
-}
-</style>

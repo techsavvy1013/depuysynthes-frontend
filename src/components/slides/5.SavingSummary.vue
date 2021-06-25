@@ -1,10 +1,12 @@
 <template>
   <section class="h-full">
     <div class="flex flex-col h-full">
-      <slideHeaderSAV
+      <slideHeader
         title="Savings Summary"
         :sav-number="24"
         class="ml-6"
+        name="SAV"
+        icon="sav"
       />
       <div class="flex mt-5 font-Arial">
         <table class="border-4 text-left text-sm text-white w-1/2 ml-5 mr-12 my-auto">
@@ -175,10 +177,10 @@
 
 <script>
 import slideFooter from "./slideFooter.vue";
-import slideHeaderSAV from "./slideHeaderSAV.vue";
+import slideHeader from "./slideHeader.vue";
 
 export default {
-  components: { slideFooter, slideHeaderSAV },
+  components: { slideFooter, slideHeader },
   props: {
     savingSummary: {
       type: Object,

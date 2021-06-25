@@ -12,16 +12,46 @@
         <h1 class="text-primary text-2xl">
           Select your presentation slides
         </h1>
-        <dp-button
-          text="Add custom slide"
-          class="px-5 py-4 rounded-xl bg-primary text-white h-btn-builder min-h-btn-builder my-auto"
-        />
+        <div class="relative flex">
+          <dp-button
+            text="Add custom slide"
+            class="
+              px-5
+              py-4
+              rounded-xl
+              bg-primary
+              text-white
+              h-btn-builder
+              min-h-btn-builder
+              my-auto
+            "
+            @click="showMenu = !showMenu"
+            @blur="delay(() => showMenu = false)"
+          />
+          <div class="absolute right-0 top-16 z-50">
+            <add-custom-slide-dropdown
+              v-if="showMenu"
+              class="shadow-xl"
+              @openNewCustomSlideModal="toggleCustomSlideModal('new')"
+              @openExistingCustomSlideModal="toggleCustomSlideModal('saved')"
+            />
+          </div>
+        </div>
       </div>
       <div class="flex space-x-3">
         <dp-button
           text="Save As Template"
-          class="px-5 py-4 rounded-xl text-white bg-secondary h-btn-builder min-h-btn-builder my-auto"
-          @click="toggleModal()"
+          class="
+            px-5
+            py-4
+            rounded-xl
+            text-white
+            bg-secondary
+            h-btn-builder
+            min-h-btn-builder
+            my-auto
+          "
+          @click="toggleSaveTemplateModal()"
         />
         <!-- This is an example component -->
         <div class="relative inline-flex">
@@ -37,7 +67,19 @@
             />
           </svg>
           <select
-            class="border border-gray-300 rounded-md text-gray-600 py-4 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none w-64"
+            class="
+              border border-gray-300
+              rounded-md
+              text-gray-600
+              py-4
+              pl-5
+              pr-10
+              bg-white
+              hover:border-gray-400
+              focus:outline-none
+              appearance-none
+              w-64
+            "
           >
             <option>Select template</option>
             <option
@@ -56,41 +98,71 @@
       :group="group"
     />
   </div>
+
+  <custom-slide-step
+    v-if="customSlideModal"
+    :type="selectedOption"
+    @hide="toggleCustomSlideModal"
+  />
   <save-template
-    v-if="modal"
-    @hide="toggleModal"
+    v-if="saveTemplateModal"
+    @hide="toggleSaveTemplateModal"
   />
 </template>
 <script>
 import { ref } from "@vue/reactivity";
 import SaveTemplate from "./SaveTemplate.vue";
+import CustomSlideStep from "./CustomSlideStep.vue";
 import DpButton from "@/components/buttons/DpButton.vue";
 import SlideGroup from "./SlideGroup.vue";
-import { useStore } from 'vuex';
-import { computed } from '@vue/runtime-core';
+import AddCustomSlideDropdown from './AddCustomSlideDropdown.vue';
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 
 export default {
   components: {
     SaveTemplate,
+    CustomSlideStep,
     DpButton,
     SlideGroup,
+    AddCustomSlideDropdown
   },
 
   setup() {
     const store = useStore();
-    const slideGroups = computed(() => store.getters['rfps/defaultSlides'])
+    const slideGroups = computed(() => store.getters["rfps/defaultSlides"]);
 
-    const modal = ref(false);
-    const toggleModal = () => {
-      modal.value = !modal.value;
+    const saveTemplateModal = ref(false);
+
+    const toggleSaveTemplateModal = () => {
+      saveTemplateModal.value = !saveTemplateModal.value;
     };
-    return { slideGroups, modal, toggleModal };
+
+    const delay = (func => setTimeout(func, 500))
+
+    return {
+      slideGroups,
+      saveTemplateModal,
+      toggleSaveTemplateModal,
+      delay
+    };
+  },
+  data() {
+    return {
+      showMenu: false,
+      customSlideModal: false,
+      selectedOption: ''
+    }
+  },
+
+  methods: {
+    toggleCustomSlideModal(option) {
+      this.selectedOption = option;
+      this.showMenu = false;
+      this.customSlideModal = !this.customSlideModal;
+    }
   },
 };
 </script>
 
-<style>
-.h-7 {
-  height: 7rem;
-}
-</style>
+<style></style>

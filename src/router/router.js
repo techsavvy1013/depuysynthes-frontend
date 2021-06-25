@@ -161,7 +161,10 @@ const routes = [
   {
     path: "/support",
     name: "support",
-    component: () => import("@/views/home/DashboardView.vue"),
+    component: () => import("@/views/support/supportView.vue"),
+    meta: {
+      title: "Support",
+    },
   },
   {
     path: "/view/29107879HTYI89",

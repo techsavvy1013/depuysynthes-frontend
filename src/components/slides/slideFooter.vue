@@ -1,13 +1,13 @@
 <template>
-  <footer class="flex mt-auto mb-0 px-1 pb-1 font-Arial pt-2 text-gray-500">
-    <div class="w-22 flex">
+  <footer class="flex px-1 pt-2 pb-1 mt-auto mb-0 text-gray-500 font-Arial">
+    <div class="flex w-22">
       <img
         class="object-scale-down mx-3 mt-auto mb-0 w-22"
         src="@/assets/logo/logo_rgb.png"
         alt="Workflow"
       >
     </div>
-    <p class="text-xs text-center h-full flex-grow my-auto">
+    <p class="flex-grow h-full my-auto text-xs text-center">
       <span
         v-for="mainText in mainTexts"
         :key="mainText"

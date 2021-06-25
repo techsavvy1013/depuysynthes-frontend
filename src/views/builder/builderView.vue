@@ -12,7 +12,7 @@
 
 <script>
 import Header from "@/components/builder/builderHeader.vue";
-import SideBar from '@/components/builder/buiderSideBar.vue';
+import SideBar from '@/components/builder/builderSideBar.vue';
 import Body from '@/components/builder/builderBody.vue';
 export default {
   components: {

@@ -2,10 +2,12 @@
   <section class="h-full">
     <!-- content div header-->
     <div class="flex flex-col h-full">
-      <slideHeaderSAV
+      <slideHeader
         title="Universal Small Fragment System"
         :sav-number="11"
         class="ml-16"
+        icon="sav"
+        name="SAV"
       />
       <!-- content body -->
       <div class="desc flex-4 mb-6 text-left ml-8 mr-8 px-8">
@@ -26,10 +28,10 @@
 
 <script>
 import slideFooter from "@/components/slides/slideFooter.vue";
-import slideHeaderSAV from "@/components/slides/slideHeaderSAV.vue";
+import slideHeader from "@/components/slides/slideHeader.vue";
 
 export default {
-  components: { slideFooter, slideHeaderSAV },
+  components: { slideFooter, slideHeader },
 };
 </script>
 

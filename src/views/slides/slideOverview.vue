@@ -38,7 +38,7 @@
         :group-title="slideCategory.groupTitle"
         :img-src="slideCategory.imgSrc"
         :slides="slideCategory.slides"
-        :highlighted-slide-ids="searchedSlideIDs"
+        :searched-slide-i-ds="searchedSlideIDs"
         class="mt-16"
       />
     </div>
@@ -56,11 +56,17 @@ export default {
   },
   computed: {
     searchedSlideIDs () {
-      const slides = overviewSlides.reduce((merged, slideCategory) => merged.concat(slideCategory.slides), [])
+      const slides = overviewSlides.reduce((merged, slideCategory) => merged.concat(
+        slideCategory.slides.map(slide => ({slideCategory, ...slide}))
+      ), [])
+
+      const searchString = this.searchString.toUpperCase()
+
       const searchedSlides = slides.filter(slide =>
         this.searchString && (
-          slide.slideTitle?.toUpperCase().includes(this.searchString.toUpperCase()) ||
-          slide.overviewTitle?.toUpperCase().includes(this.searchString.toUpperCase())
+          slide.slideTitle?.toUpperCase().includes(searchString) ||
+          slide.overviewTitle?.toUpperCase().includes(searchString) ||
+          slide.slideCategory.groupTitle.toUpperCase().includes(searchString)
         ))
       const searchedSlideIDs = searchedSlides.map(slide => slide.slideNumber)
       return searchedSlideIDs
